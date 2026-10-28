@@ -42,6 +42,11 @@ class Command(BaseCommand):
             {'make': 'Ford', 'name': 'Mustang', 'car_type': 'Coupe', 'year': 2023},
             {'make': 'Chevrolet', 'name': 'Silverado', 'car_type': 'Truck', 'year': 2023},
             {'make': 'BMW', 'name': '3 Series', 'car_type': 'Sedan', 'year': 2023},
+            {'make': 'BMW', 'name': 'X5', 'car_type': 'SUV', 'year': 2023},
+            {'make': 'Chevrolet', 'name': 'Malibu', 'car_type': 'Sedan', 'year': 2023},
+            {'make': 'Mercedes-Benz', 'name': 'C-Class', 'car_type': 'Sedan', 'year': 2023},
+            {'make': 'Nissan', 'name': 'Altima', 'car_type': 'Sedan', 'year': 2023},
+            {'make': 'Volkswagen', 'name': 'Jetta', 'car_type': 'Sedan', 'year': 2023},
         ]
 
         for model_data in car_models_data:

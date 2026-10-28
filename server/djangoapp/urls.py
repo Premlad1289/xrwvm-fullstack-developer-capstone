@@ -20,7 +20,11 @@ urlpatterns = [
     # Car endpoints
     path('cars/makes/', views.get_car_makes, name='get_car_makes'),
     path('cars/models/', views.get_car_models, name='get_car_models'),
+    path('get_cars', views.get_cars, name='get_cars'),
+    path('get_cars/', views.get_cars, name='get_cars_slash'),
     
     # Sentiment analysis endpoint
     path('analyze/', views.analyze_review_sentiment, name='analyze_sentiment'),
+    path('analyze/<path:text>', views.analyze_review_sentiment, name='analyze_sentiment_text'),
+    path('analyze/<path:text>/', views.analyze_review_sentiment, name='analyze_sentiment_text_slash'),
 ]

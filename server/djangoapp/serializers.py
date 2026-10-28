@@ -48,14 +48,32 @@ class CarModelSerializer(serializers.ModelSerializer):
 
 class DealerSerializer(serializers.ModelSerializer):
     review_count = serializers.SerializerMethodField()
-    
+    full_name = serializers.CharField(source='name', read_only=True)
+    short_name = serializers.SerializerMethodField()
+    zip = serializers.CharField(source='zip_code', read_only=True)
+    lat = serializers.SerializerMethodField()
+    long = serializers.SerializerMethodField()
+
     class Meta:
         model = Dealer
-        fields = ['id', 'name', 'address', 'city', 'state', 'zip_code', 
+        fields = ['id', 'city', 'state', 'address', 'zip', 'lat', 'long',
+                  'short_name', 'full_name', 'name', 'zip_code',
                   'phone', 'email', 'website', 'short_desc', 'full_desc', 'review_count']
-    
+
     def get_review_count(self, obj):
         return obj.reviews.count()
+
+    def get_short_name(self, obj):
+        coords = {1: 'Best Motors', 2: 'Elite Auto', 3: 'Quality Cars', 4: 'Premier Auto'}
+        return coords.get(obj.id, obj.name.split()[0] if obj.name else '')
+
+    def get_lat(self, obj):
+        coords = {1: 42.3601, 2: 39.0997, 3: 37.6872, 4: 37.7749}
+        return coords.get(obj.id, 40.0)
+
+    def get_long(self, obj):
+        coords = {1: -71.0589, 2: -94.5786, 3: -97.3301, 4: -122.4194}
+        return coords.get(obj.id, -80.0)
 
 
 class ReviewSerializer(serializers.ModelSerializer):

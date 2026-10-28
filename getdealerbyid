@@ -1,24 +1,26 @@
-# cURL Command for Getting Dealer by ID
-# Command:
-curl -X GET http://localhost:8000/fetchDealer/1 \
-  -H "Content-Type: application/json"
+# cURL Command:
+curl -X GET http://localhost:8000/fetchDealer/1 -H "Content-Type: application/json"
 
-# Expected Output:
+# HTTP Status:
+HTTP/1.1 200 OK
+
+# Response Body:
 {
-  "_id": 1,
-  "name": "Best Motors Inc",
-  "address": "123 Main Street",
+  "id": 1,
   "city": "Boston",
   "state": "Massachusetts",
+  "address": "123 Main Street",
   "zip": "02101",
-  "latitude": 42.3601,
-  "longitude": -71.0589,
+  "lat": 42.3601,
+  "long": -71.0589,
+  "short_name": "Best Motors",
+  "full_name": "Best Motors Inc",
+  "name": "Best Motors Inc",
+  "zip_code": "02101",
   "phone": "(617) 555-0100",
   "email": "info@bestmotors.com",
   "website": "https://www.bestmotors.com",
   "short_desc": "Your trusted car dealer in Boston",
-  "full_desc": "Best Motors Inc has been serving the Boston area for over 20 years with quality vehicles and exceptional customer service. Our experienced team is dedicated to helping you find the perfect vehicle."
+  "full_desc": "Best Motors Inc has been serving the Boston area for over 20 years with quality vehicles and exceptional customer service.",
+  "review_count": 1
 }
-
-# Status Code: 200 OK
-# Endpoint: /fetchDealer/<dealer_id>

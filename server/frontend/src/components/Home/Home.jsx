@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import './Dealers.css';
+import '../Dealers/Dealers.css';
 
 function Home() {
   const [dealers, setDealers] = useState([]);
@@ -105,18 +105,29 @@ function Home() {
           ) : (
             filteredDealers.map((dealer) => (
               <div key={dealer.id} className="col-md-4 mb-4">
-                <div className="card h-100">
+                <div className="card h-100 shadow-sm">
                   <div className="card-body">
-                    <h5 className="card-title">{dealer.name}</h5>
-                    <p className="card-text">
-                      <strong>Location:</strong> {dealer.city}, {dealer.state}
+                    <h5 className="card-title text-primary fw-bold">{dealer.full_name || dealer.name}</h5>
+                    <p className="card-text mb-1">
+                      <strong>ID:</strong> {dealer.id}
                     </p>
-                    <p className="card-text">
+                    <p className="card-text mb-1">
+                      <strong>City:</strong> {dealer.city}
+                    </p>
+                    <p className="card-text mb-1">
+                      <strong>Address:</strong> {dealer.address}
+                    </p>
+                    <p className="card-text mb-1">
+                      <strong>ZIP:</strong> {dealer.zip || dealer.zip_code}
+                    </p>
+                    <p className="card-text mb-1">
+                      <strong>State:</strong> {dealer.state}
+                    </p>
+                    <p className="card-text mb-2">
                       <strong>Phone:</strong> {dealer.phone}
                     </p>
-                    <p className="card-text text-muted">{dealer.short_desc}</p>
-                    <p className="card-text">
-                      <small className="text-muted">
+                    <p className="card-text text-muted mb-3">
+                      <small>
                         {dealer.review_count} review{dealer.review_count !== 1 ? 's' : ''}
                       </small>
                     </p>

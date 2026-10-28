@@ -1,0 +1,10 @@
+# cURL Command:
+curl -X GET http://localhost:8000/analyze/Fantastic%20services -H "Content-Type: application/json"
+
+# HTTP Status:
+HTTP/1.1 200 OK
+
+# Response Body:
+{
+  "sentiment": "positive"
+}

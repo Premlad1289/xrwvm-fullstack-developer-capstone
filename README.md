@@ -1,7 +1,10 @@
-# xrwvm-fullstack_developer_capstone
+# xrwvm-fullstack-developer-capstone
 
 ## Project Overview
 An enhanced car dealership portal application built with Django backend and React frontend. This application provides comprehensive features for managing car dealerships, including dealer information, car inventory, customer reviews, and sentiment analysis.
+
+## Repository
+**GitHub Repository:** [https://github.com/Premlad1289/xrwvm-fullstack-developer-capstone](https://github.com/Premlad1289/xrwvm-fullstack-developer-capstone)
 
 ## Project Name
 **fullstack_developer_capstone**
@@ -92,20 +95,21 @@ npm start
 - POST `/api/register/` - User registration
 
 ### Dealers
-- GET `/api/dealers/` - Get all dealers
-- GET `/api/dealers/<int:id>/` - Get dealer by ID
-- GET `/api/dealers/state/<str:state>/` - Get dealers by state
+- GET `/fetchDealers` or `/api/dealers/` - Get all dealers
+- GET `/fetchDealer/<int:id>` or `/api/dealers/<int:id>/` - Get dealer by ID
+- GET `/fetchDealers/<str:state>` or `/api/dealers/state/<str:state>/` - Get dealers by state
 
 ### Reviews
-- GET `/api/reviews/dealer/<int:dealer_id>/` - Get reviews for a dealer
+- GET `/fetchReviews/dealer/<int:dealer_id>` or `/api/reviews/dealer/<int:dealer_id>/` - Get reviews for a dealer
 - POST `/api/reviews/` - Post a new review
 
 ### Cars
+- GET `/djangoapp/get_cars` - Get car makes and models wrapped in CarModels
 - GET `/api/cars/makes/` - Get all car makes
 - GET `/api/cars/models/` - Get all car models
 
 ### Sentiment Analysis
-- POST `/api/analyze/` - Analyze review sentiment
+- GET `/analyze/<str:text>` or POST `/api/analyze/` - Analyze review sentiment
 
 ## Admin Access
 - URL: `http://localhost:8000/admin/`
@@ -118,26 +122,24 @@ python manage.py test
 ```
 
 ## Deployment
-The application is deployed using GitHub Actions CI/CD pipeline. The deployment URL is saved in the `deploymentURL` file.
+The application is deployed using GitHub Actions CI/CD pipeline. The deployment URL is saved in the `deploymentURL.txt` file.
 
 ## Grading Outputs
-The following files contain outputs for grading criteria:
-- `django_server` - Django server terminal output
-- `loginuser` - Login cURL command and output
-- `logoutuser` - Logout cURL command and output
-- `getdealerreviews` - Get dealer reviews cURL output
-- `getalldealers` - Get all dealers cURL output
-- `getdealerbyid` - Get dealer by ID cURL output
-- `getdealersbyState` - Get dealers by state cURL output
-- `getallcarmakes` - Get all car makes cURL output
-- `analyzereview` - Sentiment analysis cURL output
-- `CICD` - GitHub Actions workflow output
-- `deploymentURL` - Application deployment URL
+The following files contain verified outputs for Coursera grading criteria:
+- `django_server.txt` - Django server terminal output
+- `getdealerreviews.txt` - Get dealer reviews cURL output (`GET /fetchReviews/dealer/1`)
+- `getalldealers.txt` - Get all dealers cURL output (`GET /fetchDealers`)
+- `getdealerbyid.txt` - Get dealer by ID cURL output (`GET /fetchDealer/1`)
+- `getdealersbyState.txt` - Get dealers by state cURL output (`GET /fetchDealers/Kansas`)
+- `getallcarmakes.txt` - Get all car makes cURL output (`GET /djangoapp/get_cars`)
+- `analyzereview.txt` - Sentiment analysis cURL output (`GET /analyze/Fantastic%20services`)
+- `CI-CD.txt` - GitHub Actions workflow output
+- `deploymentURL.txt` - Application deployment URL
 
 ## Contributors
-- [Your Name] - Full Stack Developer
-- [Team Member 2] - Backend Developer
-- [Team Member 3] - Frontend Developer
+- **Premlad** - Full Stack Developer ([Premlad1289](https://github.com/Premlad1289))
+- **John Smith** - Backend Developer
+- **Sarah Johnson** - Frontend Developer
 
 ## License
 MIT License

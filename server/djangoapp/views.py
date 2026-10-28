@@ -221,16 +221,34 @@ def get_car_models(request):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# Sentiment Analysis View
-@api_view(['POST'])
+@api_view(['GET'])
 @permission_classes([AllowAny])
-def analyze_review_sentiment(request):
+def get_cars(request):
+    """Get all car models wrapped in CarModels object"""
+    car_models = CarModel.objects.select_related('make').all()
+    cars = []
+    for cm in car_models:
+        cars.append({
+            "CarMake": cm.make.name,
+            "CarModel": cm.name
+        })
+    return Response({"CarModels": cars}, status=status.HTTP_200_OK)
+
+
+# Sentiment Analysis View
+@api_view(['GET', 'POST'])
+@permission_classes([AllowAny])
+def analyze_review_sentiment(request, text=None):
     """
-    Analyze sentiment of review text
-    Expected data: {'text': str}
+    Analyze sentiment of review text. Supports GET /analyze/<text> and POST /analyze/
+    Expected data: text parameter in URL or POST body {'text': str}
     Returns: {'sentiment': 'positive'|'negative'|'neutral'}
     """
-    text = request.data.get('text', '')
+    if not text:
+        if request.method == 'POST':
+            text = request.data.get('text', '') if isinstance(request.data, dict) else ''
+        else:
+            text = request.GET.get('text', '')
     
     if not text:
         return Response(
@@ -241,6 +259,5 @@ def analyze_review_sentiment(request):
     sentiment = analyze_sentiment(text)
     
     return Response({
-        'text': text,
         'sentiment': sentiment
     }, status=status.HTTP_200_OK)

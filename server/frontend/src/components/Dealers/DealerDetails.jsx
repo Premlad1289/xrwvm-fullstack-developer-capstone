@@ -77,16 +77,17 @@ function DealerDetails() {
 
   return (
     <div className="container mt-5">
-      <div className="card mb-4">
+      <div className="card mb-4 shadow-sm">
         <div className="card-body">
-          <h1 className="card-title">{dealer.name}</h1>
+          <h1 className="card-title text-primary fw-bold">{dealer.full_name || dealer.name}</h1>
           <hr />
           <div className="row">
             <div className="col-md-6">
+              <p><strong>Dealer ID:</strong> {dealer.id}</p>
               <p><strong>Address:</strong> {dealer.address}</p>
               <p><strong>City:</strong> {dealer.city}</p>
               <p><strong>State:</strong> {dealer.state}</p>
-              <p><strong>Zip Code:</strong> {dealer.zip_code}</p>
+              <p><strong>Zip Code:</strong> {dealer.zip || dealer.zip_code}</p>
             </div>
             <div className="col-md-6">
               <p><strong>Phone:</strong> {dealer.phone}</p>
@@ -115,7 +116,7 @@ function DealerDetails() {
         </div>
       </div>
 
-      <div className="card">
+      <div className="card shadow-sm">
         <div className="card-body">
           <h3 className="card-title">Customer Reviews ({reviews.length})</h3>
           <hr />
@@ -126,12 +127,19 @@ function DealerDetails() {
               <div key={review.id} className="mb-4 border-bottom pb-3">
                 <div className="d-flex justify-content-between align-items-start">
                   <div>
-                    <h5>{review.customer_name}</h5>
+                    <h5 className="mb-1">{review.customer_name}</h5>
                     <p className="text-muted small">
                       {new Date(review.created_at).toLocaleDateString()}
                     </p>
                   </div>
-                  <span className={getSentimentBadge(review.sentiment)}>
+                  <span className={`${getSentimentBadge(review.sentiment)} d-inline-flex align-items-center px-2 py-1`}>
+                    <img
+                      src={`/static/${review.sentiment}.png`}
+                      alt={review.sentiment}
+                      className="emotion_icon me-1"
+                      style={{ width: '18px', height: '18px' }}
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
                     {review.sentiment}
                   </span>
                 </div>

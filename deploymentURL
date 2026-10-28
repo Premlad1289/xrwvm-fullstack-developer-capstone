@@ -1,16 +1,1 @@
-GitHub Repository: https://github.com/Rezaan91/car-dealership-portal
-README.md: https://github.com/Rezaan91/car-dealership-portal/blob/main/README.md
-
-Deployment URL: https://car-dealership-portal.onrender.com
-
-Production Application URL: https://car-dealership-portal.onrender.com
-Alternative Cloud Platforms: Render, Heroku, Railway, Azure, AWS
-
-The application is configured for deployment with:
-- Gunicorn as the WSGI server
-- Static files collection via WhiteNoise
-- Database migrations
-- Environment variable configuration
-- CORS settings for frontend-backend communication
-- PostgreSQL database in production
-- Automated deployment via render.yaml blueprint
+https://car-dealership-portal.onrender.com

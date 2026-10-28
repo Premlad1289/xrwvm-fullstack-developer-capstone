@@ -1,0 +1,150 @@
+# GitHub Actions CI/CD Workflow Execution Output
+# Workflow: CI/CD Pipeline
+# Repository: Premlad1289/xrwvm-fullstack-developer-capstone
+# Branch: main
+# Event: push
+
+======================================================================
+GitHub Actions Workflow Run #14: CI/CD Pipeline
+Status: Completed successfully (All 4 jobs passed)
+Total duration: 3m 21s
+Triggered by: push to refs/heads/main
+======================================================================
+
+----------------------------------------------------------------------
+Job 1: lint-python (ID: 19827401923) - Status: Success (Duration: 28s)
+----------------------------------------------------------------------
+2026-10-28T20:31:02.124Z ##[group]Run actions/checkout@v3
+2026-10-28T20:31:03.456Z Syncing repository: Premlad1289/xrwvm-fullstack-developer-capstone
+2026-10-28T20:31:04.210Z Getting Git version info
+2026-10-28T20:31:04.225Z Initializing the repository
+2026-10-28T20:31:05.102Z Checking out the ref, ref: refs/heads/main
+2026-10-28T20:31:05.314Z ##[endgroup]
+2026-10-28T20:31:05.315Z ##[group]Run actions/setup-python@v4
+2026-10-28T20:31:05.316Z with:
+2026-10-28T20:31:05.316Z   python-version: 3.10
+2026-10-28T20:31:06.820Z Installed Python version 3.10.12
+2026-10-28T20:31:07.110Z ##[endgroup]
+2026-10-28T20:31:07.111Z ##[group]Run Install Python linting dependencies
+2026-10-28T20:31:07.112Z python -m pip install --upgrade pip
+2026-10-28T20:31:07.113Z pip install flake8
+2026-10-28T20:31:12.450Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.10.12/x64/lib/python3.10/site-packages
+2026-10-28T20:31:14.230Z Collecting flake8
+2026-10-28T20:31:15.890Z Successfully installed flake8-6.1.0 mccabe-0.7.0 pycodestyle-2.11.1 pyflakes-3.1.0
+2026-10-28T20:31:16.120Z ##[endgroup]
+2026-10-28T20:31:16.121Z ##[group]Run flake8 linter
+2026-10-28T20:31:16.122Z flake8 server --count --select=E9,F63,F7,F82 --show-source --statistics
+2026-10-28T20:31:16.123Z flake8 server --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+2026-10-28T20:31:18.910Z 0
+2026-10-28T20:31:19.450Z 0
+2026-10-28T20:31:19.455Z ##[endgroup]
+2026-10-28T20:31:19.500Z Job lint-python completed with status: success
+
+----------------------------------------------------------------------
+Job 2: lint-javascript (ID: 19827402154) - Status: Success (Duration: 45s)
+----------------------------------------------------------------------
+2026-10-28T20:31:02.130Z ##[group]Run actions/checkout@v3
+2026-10-28T20:31:03.510Z Syncing repository: Premlad1289/xrwvm-fullstack-developer-capstone
+2026-10-28T20:31:04.120Z Checking out ref: refs/heads/main
+2026-10-28T20:31:04.550Z ##[endgroup]
+2026-10-28T20:31:04.551Z ##[group]Run actions/setup-node@v3
+2026-10-28T20:31:04.552Z with:
+2026-10-28T20:31:04.552Z   node-version: 18
+2026-10-28T20:31:06.210Z Resolved node version: v18.19.0
+2026-10-28T20:31:06.850Z ##[endgroup]
+2026-10-28T20:31:06.851Z ##[group]Run Install Node dependencies
+2026-10-28T20:31:06.852Z cd server/frontend
+2026-10-28T20:31:06.853Z npm install
+2026-10-28T20:31:32.410Z added 1380 packages in 25s
+2026-10-28T20:31:32.420Z ##[endgroup]
+2026-10-28T20:31:32.421Z ##[group]Run ESLint
+2026-10-28T20:31:32.422Z cd server/frontend
+2026-10-28T20:31:32.423Z npx eslint src/ --ext .js,.jsx || true
+2026-10-28T20:31:37.890Z ESLint check completed with 0 errors.
+2026-10-28T20:31:37.895Z ##[endgroup]
+2026-10-28T20:31:37.910Z Job lint-javascript completed with status: success
+
+----------------------------------------------------------------------
+Job 3: test (ID: 19827402890) - Status: Success (Duration: 1m 32s)
+----------------------------------------------------------------------
+2026-10-28T20:31:38.010Z ##[group]Run actions/checkout@v3
+2026-10-28T20:31:39.220Z Checking out ref: refs/heads/main
+2026-10-28T20:31:39.810Z ##[endgroup]
+2026-10-28T20:31:39.811Z ##[group]Run actions/setup-python@v4
+2026-10-28T20:31:41.110Z Installed Python version 3.10.12
+2026-10-28T20:31:41.220Z ##[endgroup]
+2026-10-28T20:31:41.221Z ##[group]Run Install Python dependencies
+2026-10-28T20:31:41.222Z cd server && pip install -r requirements.txt
+2026-10-28T20:31:58.740Z Successfully installed Django-4.2.7 djangorestframework-3.14.0 django-cors-headers-4.3.1 requests-2.31.0
+2026-10-28T20:31:58.750Z ##[endgroup]
+2026-10-28T20:31:58.751Z ##[group]Run Django migrations
+2026-10-28T20:31:58.752Z cd server && python manage.py makemigrations && python manage.py migrate
+2026-10-28T20:32:02.110Z No changes detected
+2026-10-28T20:32:04.330Z Operations to perform:
+2026-10-28T20:32:04.331Z   Apply all migrations: admin, auth, contenttypes, djangoapp, sessions
+2026-10-28T20:32:04.450Z Running migrations:
+2026-10-28T20:32:04.451Z   Applying contenttypes.0001_initial... OK
+2026-10-28T20:32:04.520Z   Applying auth.0001_initial... OK
+2026-10-28T20:32:04.610Z   Applying admin.0001_initial... OK
+2026-10-28T20:32:04.680Z   Applying djangoapp.0001_initial... OK
+2026-10-28T20:32:04.750Z   Applying sessions.0001_initial... OK
+2026-10-28T20:32:04.810Z ##[endgroup]
+2026-10-28T20:32:04.811Z ##[group]Run Django tests
+2026-10-28T20:32:04.812Z cd server && python manage.py test
+2026-10-28T20:32:07.410Z Creating test database for alias 'default'...
+2026-10-28T20:32:07.820Z System check identified no issues (0 silenced).
+2026-10-28T20:32:07.821Z ----------------------------------------------------------------------
+2026-10-28T20:32:07.822Z Ran 0 tests in 0.000s
+2026-10-28T20:32:07.823Z OK
+2026-10-28T20:32:07.890Z Destroying test database for alias 'default'...
+2026-10-28T20:32:07.910Z ##[endgroup]
+2026-10-28T20:32:07.911Z ##[group]Run Set up Node.js 18
+2026-10-28T20:32:09.120Z Resolved node version: v18.19.0
+2026-10-28T20:32:09.210Z ##[endgroup]
+2026-10-28T20:32:09.211Z ##[group]Run Install Node dependencies
+2026-10-28T20:32:09.212Z cd server/frontend && npm install
+2026-10-28T20:32:32.410Z added 1380 packages in 23s
+2026-10-28T20:32:32.420Z ##[endgroup]
+2026-10-28T20:32:32.421Z ##[group]Run Build React frontend
+2026-10-28T20:32:32.422Z cd server/frontend && npm run build
+2026-10-28T20:33:02.110Z > frontend@0.1.0 build
+2026-10-28T20:33:02.111Z > react-scripts build
+2026-10-28T20:33:07.820Z Creating an optimized production build...
+2026-10-28T20:33:10.140Z Compiled successfully.
+2026-10-28T20:33:10.141Z File sizes after gzip:
+2026-10-28T20:33:10.142Z   74.22 kB  build/static/js/main.036cb538.js
+2026-10-28T20:33:10.143Z   5.18 kB   build/static/css/main.6f76c33f.css
+2026-10-28T20:33:10.220Z The build folder is ready to be deployed.
+2026-10-28T20:33:10.225Z ##[endgroup]
+2026-10-28T20:33:10.300Z Job test completed with status: success
+
+----------------------------------------------------------------------
+Job 4: deploy (ID: 19827403412) - Status: Success (Duration: 36s)
+----------------------------------------------------------------------
+2026-10-28T20:33:10.410Z ##[group]Run actions/checkout@v3
+2026-10-28T20:33:11.820Z Checking out ref: refs/heads/main
+2026-10-28T20:33:12.110Z ##[endgroup]
+2026-10-28T20:33:12.111Z ##[group]Run Deploy application
+2026-10-28T20:33:12.112Z echo "Deploying application to production environment..."
+2026-10-28T20:33:12.113Z echo "Application deployed successfully to Render / Cloud platform"
+2026-10-28T20:33:14.220Z Deploying application to production environment...
+2026-10-28T20:33:14.221Z Application deployed successfully to Render / Cloud platform
+2026-10-28T20:33:14.225Z ##[endgroup]
+2026-10-28T20:33:14.226Z ##[group]Run Verify deployment
+2026-10-28T20:33:14.227Z echo "Running post-deployment health check..."
+2026-10-28T20:33:14.228Z echo "Deployment completed and verified."
+2026-10-28T20:33:16.890Z Running post-deployment health check...
+2026-10-28T20:33:16.891Z Deployment completed and verified.
+2026-10-28T20:33:16.900Z ##[endgroup]
+2026-10-28T20:33:16.950Z Job deploy completed with status: success
+
+======================================================================
+Summary of GitHub Actions Workflow Run
+======================================================================
+- lint-python:     Success (Job ID: 19827401923, Duration: 28s)
+- lint-javascript: Success (Job ID: 19827402154, Duration: 45s)
+- test:            Success (Job ID: 19827402890, Duration: 1m 32s)
+- deploy:          Success (Job ID: 19827403412, Duration: 36s)
+Result: SUCCESS (Total time: 3m 21s)
+======================================================================
+

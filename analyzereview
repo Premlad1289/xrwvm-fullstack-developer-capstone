@@ -1,29 +1,10 @@
-# cURL Command for Sentiment Analysis of Review Text
-# Command:
-curl -X GET http://localhost:8000/analyze/Fantastic%20services \
-  -H "Content-Type: application/json"
+# cURL Command:
+curl -X GET http://localhost:8000/analyze/Fantastic%20services -H "Content-Type: application/json"
 
-# Expected Output:
+# HTTP Status:
+HTTP/1.1 200 OK
+
+# Response Body:
 {
   "sentiment": "positive"
 }
-
-# Status Code: 200 OK
-# Endpoint: /analyze/<review_text>
-
-# Additional Examples:
-
-# Example 1: Positive Review (URL encoded)
-curl -X GET http://localhost:8000/analyze/Excellent%20customer%20service \
-  -H "Content-Type: application/json"
-# Output: {"sentiment": "positive"}
-
-# Example 2: Negative Review
-curl -X GET http://localhost:8000/analyze/Terrible%20experience \
-  -H "Content-Type: application/json"
-# Output: {"sentiment": "negative"}
-
-# Example 3: Neutral Review
-curl -X GET http://localhost:8000/analyze/The%20dealership%20is%20downtown \
-  -H "Content-Type: application/json"
-# Output: {"sentiment": "neutral"}

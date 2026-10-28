@@ -1,0 +1,85 @@
+# cURL Command:
+curl -X GET http://localhost:8000/fetchDealers -H "Content-Type: application/json"
+
+# HTTP Status:
+HTTP/1.1 200 OK
+
+# Response Body:
+[
+  {
+    "id": 4,
+    "city": "San Francisco",
+    "state": "California",
+    "address": "321 Elm Street",
+    "zip": "94102",
+    "lat": 37.7749,
+    "long": -122.4194,
+    "short_name": "Premier Auto",
+    "full_name": "Premier Auto Group",
+    "name": "Premier Auto Group",
+    "zip_code": "94102",
+    "phone": "(415) 555-0400",
+    "email": "info@premierauto.com",
+    "website": "https://www.premierauto.com",
+    "short_desc": "San Francisco's premier car dealership",
+    "full_desc": "Premier Auto Group offers the finest selection of vehicles in the Bay Area.",
+    "review_count": 2
+  },
+  {
+    "id": 2,
+    "city": "Kansas City",
+    "state": "Kansas",
+    "address": "456 Oak Avenue",
+    "zip": "66101",
+    "lat": 39.0997,
+    "long": -94.5786,
+    "short_name": "Elite Auto",
+    "full_name": "Elite Auto Sales",
+    "name": "Elite Auto Sales",
+    "zip_code": "66101",
+    "phone": "(913) 555-0200",
+    "email": "sales@eliteauto.com",
+    "website": "https://www.eliteauto.com",
+    "short_desc": "Premium vehicles and exceptional service",
+    "full_desc": "Elite Auto Sales specializes in premium vehicles with a focus on customer satisfaction.",
+    "review_count": 1
+  },
+  {
+    "id": 3,
+    "city": "Wichita",
+    "state": "Kansas",
+    "address": "789 Pine Road",
+    "zip": "67202",
+    "lat": 37.6872,
+    "long": -97.3301,
+    "short_name": "Quality Cars",
+    "full_name": "Quality Cars",
+    "name": "Quality Cars",
+    "zip_code": "67202",
+    "phone": "(316) 555-0300",
+    "email": "contact@qualitycars.com",
+    "website": "https://www.qualitycars.com",
+    "short_desc": "Quality vehicles at affordable prices",
+    "full_desc": "At Quality Cars, we believe in providing quality vehicles at prices that fit your budget.",
+    "review_count": 0
+  },
+  {
+    "id": 1,
+    "city": "Boston",
+    "state": "Massachusetts",
+    "address": "123 Main Street",
+    "zip": "02101",
+    "lat": 42.3601,
+    "long": -71.0589,
+    "short_name": "Best Motors",
+    "full_name": "Best Motors Inc",
+    "name": "Best Motors Inc",
+    "zip_code": "02101",
+    "phone": "(617) 555-0100",
+    "email": "info@bestmotors.com",
+    "website": "https://www.bestmotors.com",
+    "short_desc": "Your trusted car dealer in Boston",
+    "full_desc": "Best Motors Inc has been serving the Boston area for over 20 years with quality vehicles and exceptional customer service.",
+    "review_count": 1
+  }
+]
